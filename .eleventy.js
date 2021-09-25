@@ -61,9 +61,9 @@ module.exports = function(eleventyConfig) {
   // Draft Posts
   eleventyConfig.addCollection('post', (collection) => {
     if (process.env.ELEVENTY_ENV !== 'production')
-      return [...collection.getFilteredByGlob('./posts/*.md')]
+      return [...collection.getFilteredByGlob('/posts/*.md')]
     else
-      return [...collection.getFilteredByGlob('./posts/*.md')]
+      return [...collection.getFilteredByGlob('/posts/*.md')]
         .filter((post) => !post.data.draft)
   })
 
