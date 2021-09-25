@@ -1,0 +1,21 @@
+{
+  "title": "dltmurphy",
+  "url": "https://dltmurphy.co.uk/",
+  "language": "en-gb",
+  "description": "Another tech blog",
+  "feed": {
+    "subtitle": "IT Infrastructure, Network and Security",
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "id": "https://example.com/"
+  },
+  "jsonfeed": {
+    "path": "/feed/feed.json",
+    "url": "https://dltmurphy.co.uk/feed/feed.json"
+  },
+  "author": {
+    "name": "Danny Murphy",
+    "email": "web@dltmurphy.co.uk",
+    "url": "https://dltmurphy.co.uk/about/"
+  }
+}
