@@ -58,15 +58,6 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addFilter("filterTagList", filterTagList)
 
-  // Draft Posts
-  eleventyConfig.addCollection('post', (collection) => {
-    if (process.env.ELEVENTY_ENV !== 'production')
-      return [...collection.getFilteredByGlob('/posts/*.md')]
-    else
-      return [...collection.getFilteredByGlob('/posts/*.md')]
-        .filter((post) => !post.data.draft)
-  })
-
   // Create an array of all tags
   eleventyConfig.addCollection("tagList", function(collection) {
     let tagSet = new Set();

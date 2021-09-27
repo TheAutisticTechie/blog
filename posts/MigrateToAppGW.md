@@ -1,7 +1,7 @@
 ---
 title: Migrating to Azure Application Gateway WAF
-description: This is a post on My Blog about touchpoints and circling wagons.
-date: 2021-03-30
+description: The process of migrating from Legacy WAF to Azure App Gateway WAF
+date: 2021-10-30
 draft: true
 tags:
     - Azure
@@ -38,7 +38,7 @@ Would it even work with our applications?
 
 Now that I knew it would work, I
 
-## Migrate!
+## The Migration
 
 As you'd expect, everything went swimmingly thanks to the extensive planning that was put into it! I'll go into detail on how I migrated and how I configured the Application Gateway and WAF rules with minimal downtime.
 
