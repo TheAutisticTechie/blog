@@ -1,8 +1,8 @@
 ---
 title: All Posts
 description: All Posts
-date: 2021-10-30
-eleventyExcludeFromCollections: true
+date: 2021-10-31
+draft: true
 tags:
     - Azure
     - WAF
