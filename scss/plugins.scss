@@ -1,32 +1,32 @@
 /* prism-base16-monokai dark */
 code[class*="language-"], pre[class*="language-"] {
-	font-size: 14px;
-	line-height: 1.375;
+	background: #272822;
+	color: #f8f8f2;
 	direction: ltr;
-	text-align: left;
-	white-space: pre;
-	word-spacing: normal;
-	word-break: normal;
-	-moz-tab-size: 2;
-	-o-tab-size: 2;
-	tab-size: 2;
+	font-size: 14px;
 	-webkit-hyphens: none;
 	-moz-hyphens: none;
 	-ms-hyphens: none;
 	hyphens: none;
-	background: #272822;
-	color: #f8f8f2;
+	line-height: 1.375;
+	-moz-tab-size: 2;
+	-o-tab-size: 2;
+	tab-size: 2;
+	text-align: left;
+	white-space: pre;
+	word-break: normal;
+	word-spacing: normal;
 }
 
 pre[class*="language-"] {
-	padding: 1.5em 0;
 	margin: .5em 0;
 	overflow: auto;
+	padding: 1.5em 0;
 }
 
 :not(pre) > code[class*="language-"] {
-	padding: .1em;
 	border-radius: .3em;
+	padding: .1em;
 }
 
 .token.comment, .token.prolog, .token.doctype, .token.cdata {
