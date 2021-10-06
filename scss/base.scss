@@ -27,7 +27,7 @@ p:last-child {
     max-width: 37.5em; /* 600px /16 */
 }
 
-p,.tmpl-post li {
+p, .tmpl-post li {
     line-height: 1.45;
 }
 
@@ -107,14 +107,13 @@ header:after {
     display: table;
 }
 
-pre,
-code {
+pre, code {
     font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
     line-height: 1.5;
 }
 
 pre {
-    background-color: #f6f6f6;
+    background-color: #F6F6F6;
     direction: ltr;
     font-size: 14px;
     -webkit-hyphens: none;
@@ -155,21 +154,21 @@ code {
 }
 
 .highlight-line-isdir {
-    background-color: #222;
-    color: #b0b0b0;
+    background-color: #222222;
+    color: #B0B0B0;
 }
 
 .highlight-line-active {
-    background-color: #444;
+    background-color: #444444;
     background-color: hsla(0, 0%, 27%, .8);
 }
 
 .highlight-line-add {
-    background-color: #45844b;
+    background-color: #45844B;
 }
 
 .highlight-line-remove {
-    background-color: #902f2f;
+    background-color: #902F2F;
 }
 
 /* Posts list */
@@ -194,8 +193,7 @@ code {
     text-align: right;
 }
 
-.postlist-date,
-.postlist-item:before {
+.postlist-date, .postlist-item:before {
     color: var(--darkgray);
     font-size: 0.8125em; /* 13px /16 */
 }
@@ -240,13 +238,11 @@ code {
     text-transform: uppercase;
 }
 
-a[href].post-tag,
-a[href].post-tag:visited {
+a[href].post-tag, a[href].post-tag:visited {
     color: inherit;
 }
 
-a[href].post-tag:hover,
-a[href].post-tag:focus {
+a[href].post-tag:hover, a[href].post-tag:focus {
     background-color: var(--lightgray);
 }
 
@@ -256,7 +252,7 @@ a[href].post-tag:focus {
 
 /* Warning */
 .warning {
-    background-color: #ffc;
+    background-color: #FFC;
     padding: 1em 0.625em; /* 16px 10px /16 */
 }
 .warning ol:only-child {
@@ -270,13 +266,10 @@ a[href].post-tag:focus {
     margin-left: .1em;
     text-decoration: none;
 }
-a[href].direct-link,
-a[href].direct-link:visited {
+a[href].direct-link, a[href].direct-link:visited {
     color: transparent;
 }
-a[href].direct-link:focus,
-a[href].direct-link:focus:visited,
-:hover > a[href].direct-link,
+a[href].direct-link:focus, a[href].direct-link:focus:visited, :hover > a[href].direct-link,
 :hover > a[href].direct-link:visited {
-    color: #aaa;
+    color: #AAAAAA;
 }
