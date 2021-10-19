@@ -6,6 +6,7 @@ const pluginNavigation = require("@11ty/eleventy-navigation");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const inclusiveLangPlugin = require("@11ty/eleventy-plugin-inclusive-language");
+const UpgradeHelper = require("@11ty/eleventy-upgrade-help");
 
 module.exports = function(eleventyConfig) {
   // Watch scss folder
@@ -19,6 +20,11 @@ module.exports = function(eleventyConfig) {
     templateFormats: ["md"],
     words: ""// comma delimited list
     })
+  eleventyConfig.addPlugin(UpgradeHelper);
+
+  // Update new defaults for v1
+  eleventyConfig.setLiquidOptions({ strictFilters: true })
+  eleventyConfig.setLiquidOptions({ dynamicPartials: true })
 
   // https://www.11ty.dev/docs/data-deep-merge/
   eleventyConfig.setDataDeepMerge(true);

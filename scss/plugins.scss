@@ -1,40 +1,40 @@
 /* prism-base16-monokai dark */
 code[class*="language-"], pre[class*="language-"] {
-	font-size: 14px;
-	line-height: 1.375;
+	background: #272822;
+	color: #F8F8F2;
 	direction: ltr;
-	text-align: left;
-	white-space: pre;
-	word-spacing: normal;
-	word-break: normal;
-	-moz-tab-size: 2;
-	-o-tab-size: 2;
-	tab-size: 2;
+	font-size: 14px;
 	-webkit-hyphens: none;
 	-moz-hyphens: none;
 	-ms-hyphens: none;
 	hyphens: none;
-	background: #272822;
-	color: #f8f8f2;
+	line-height: 1.375;
+	-moz-tab-size: 2;
+	-o-tab-size: 2;
+	tab-size: 2;
+	text-align: left;
+	white-space: pre;
+	word-break: normal;
+	word-spacing: normal;
 }
 
 pre[class*="language-"] {
-	padding: 1.5em 0;
 	margin: .5em 0;
 	overflow: auto;
+	padding: 1.5em 0;
 }
 
 :not(pre) > code[class*="language-"] {
-	padding: .1em;
 	border-radius: .3em;
+	padding: .1em;
 }
 
 .token.comment, .token.prolog, .token.doctype, .token.cdata {
-	color: #75715e;
+	color: #75715E;
 }
 
 .token.punctuation {
-	color: #f8f8f2;
+	color: #F8F8F2;
 }
 
 .token.namespace {
@@ -42,43 +42,43 @@ pre[class*="language-"] {
 }
 
 .token.operator, .token.boolean, .token.number {
-	color: #fd971f;
+	color: #FD971F;
 }
 
 .token.property {
-	color: #f4bf75;
+	color: #F4BF75;
 }
 
 .token.tag {
-	color: #66d9ef;
+	color: #66D9EF;
 }
 
 .token.string {
-	color: #a1efe4;
+	color: #A1EFE4;
 }
 
 .token.selector {
-	color: #ae81ff;
+	color: #AE81FF;
 }
 
 .token.attr-name {
-	color: #fd971f;
+	color: #FD971F;
 }
 
 .token.entity, .token.url, .language-css .token.string, .style .token.string {
-	color: #a1efe4;
+	color: #A1EFE4;
 }
 
 .token.attr-value, .token.keyword, .token.control, .token.directive, .token.unit {
-	color: #a6e22e;
+	color: #A6E22E;
 }
 
 .token.statement, .token.regex, .token.atrule {
-	color: #a1efe4;
+	color: #A1EFE4;
 }
 
 .token.placeholder, .token.variable {
-	color: #66d9ef;
+	color: #66D9EF;
 }
 
 .token.deleted {
@@ -86,7 +86,7 @@ pre[class*="language-"] {
 }
 
 .token.inserted {
-	border-bottom: 1px dotted #f9f8f5;
+	border-bottom: 1px dotted #F9F8F5;
 	text-decoration: none;
 }
 
@@ -99,7 +99,7 @@ pre[class*="language-"] {
 }
 
 .token.important {
-	color: #f92672;
+	color: #F92672;
 }
 
 .token.entity {
@@ -107,82 +107,93 @@ pre[class*="language-"] {
 }
 
 pre > code.highlight {
-	outline: 0.4em solid #f92672;
+	outline: 0.4em solid #F92672;
 	outline-offset: .4em;
 }
 
 /* Toggle Button */
-.themeToggle {
-	position: fixed;
+
+.themeToggleContainer {
+	position: absolute;
 	right: 3px;
 	top: 3px;
 
-	.toggleBtn {
-		@include themify($themes) {
-			border: 3px solid themed('themeToggleBackgroundColour');
+	.themeToggle {
+		border: none;
+		margin: 0;
+		padding: 0;
+		position: sticky;
+
+		.toggleBtn {
+			@include themify($themes) {
+				border: 3px solid themed('themeToggleBackgroundColour');
+			}
+			display: inline-block;
+			padding: 10px;
+			position: relative;
+			text-align: center;
+			transition: background 600ms ease, color 600ms ease;
 		}
-		display: inline-block;
-		padding: 10px;
-		position: relative;
-		text-align: center;
-		transition: background 600ms ease, color 600ms ease;
-	}
 
-	input[type="radio"].toggle {
-		display: none;
+		input[type="radio"].toggle {
+			display: none;
 
-		& + label {
-			//background: #222222;
-			cursor: pointer;
-			min-width: 60px;
+			& + label {
+				//background: #222222;
+				cursor: pointer;
+				min-width: 60px;
 
-			&:hover {
+				&:hover {
+					@include themify($themes) {
+						color: themed('themeToggleTextColour');
+					}
+					background: none;
+				}
+
+				&:after {
+					@include themify($themes) {
+						background: themed('themeToggleBackgroundColour');
+					}
+					content: "";
+					height: 100%;
+					position: absolute;
+					top: 0;
+					transition: left 200ms cubic-bezier(0.77, 0, 0.175, 1);
+					width: 100%;
+					z-index: -1;
+				}
+			}
+
+			&.toggleLeft + label {
+				border-right: 0;
+
+				&:after{
+					left: 100%
+				}
+			}
+
+			&.toggleRight + label{
+				margin-left: -5px;
+				
+				&:after{
+					left: -100%;
+				}
+			}
+
+			&:not(:checked + label) {
+				opacity: 0.6;
+			}
+
+			&:checked + label {
 				@include themify($themes) {
 					color: themed('themeToggleTextColour');
 				}
-				background: none;
-			}
+				cursor: default;
+				transition: color 200ms;
 
-			&:after {
-				@include themify($themes) {
-					background: themed('themeToggleBackgroundColour');
+				&:after{
+					left: 0;
 				}
-				content: "";
-				height: 100%;
-				position: absolute;
-				top: 0;
-				transition: left 200ms cubic-bezier(0.77, 0, 0.175, 1);
-				width: 100%;
-				z-index: -1;
-			}
-		}
-
-		&.toggleLeft + label {
-			border-right: 0;
-			&:after{
-				left: 100%
-			}
-		}
-
-		&.toggleRight + label{
-			margin-left: -5px;
-			&:after{
-				left: -100%;
-			}
-		}
-
-		&:not(:checked + label) {
-			opacity: 0.6;
-		}
-
-		&:checked + label {
-			@include themify($themes) {
-				color: themed('themeToggleTextColour');
-			}
-			cursor: default;
-			transition: color 200ms;
-			&:after{
-				left: 0;
 			}
 		}
 	}

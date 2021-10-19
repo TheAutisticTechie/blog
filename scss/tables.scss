@@ -2,8 +2,7 @@ table {
     margin: 1em 0;
 }
 
-table td,
-table th {
+table td, table th {
     @include themify($themes) {
         color: themed('headingColour');
     }

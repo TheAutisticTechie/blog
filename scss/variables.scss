@@ -1,22 +1,47 @@
+// base variables
+$white: #FFFFFF;
+$black: #000000;
 
+// light
+$light_pink1: #F1CED4;
+$light_pink2: #F9CCD3;
+$light_grey: #E9EAE0;
+$light_black: #391306;
+$light_red: #710019;
 
+// dark
+$dark_purple: #73436D;
+$dark_pink1: #B67C9A;
+$dark_pink2: #CBA3B8;
+$dark_grey: #E5E6E9;
+$dark_black: #1F252F;
 
 $themes: (
     light: (
-        background: #E9E9E9,
-        headingColour: #000000,
+        background: $light_grey,
+        headingColour: $black,
         textColour: #333333,
-        headerBackground: #D7AFEF,
-        themeToggleBackgroundColour: #E9E9E9,
-        themeToggleTextColour: #333333
+        textEmphasisColour: $light_black,
+        linkColour: $light_red,
+        linkColourHover: $light_black,
+        borderColour: $light_red,
+        headerBackground: $light_pink1,
+        themeToggleBackgroundColour: $light_grey,
+        themeToggleTextColour: #333333,
+        postTagColour: $light_red
     ),
     dark: (
-        background: #1E1E1E,
-        headingColour: #FFFFFF,
-        textColour: #A9A9A9,
-        headerBackground: #13021D,
-        themeToggleBackgroundColour: #1E1E1E,
-        themeToggleTextColour: #A9A9A9
+        background: $dark_black,
+        headingColour: $white,
+        textColour: $dark_grey,
+        textEmphasisColour: $dark_pink1,
+        linkColour: $dark_pink1,
+        linkColourHover: $dark_pink2,
+        borderColour: $dark_pink1,
+        headerBackground: $dark_purple,
+        themeToggleBackgroundColour: $dark_black,
+        themeToggleTextColour: $dark_grey,
+        postTagColour: $dark_pink1
     ),
 );
 

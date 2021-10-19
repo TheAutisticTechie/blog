@@ -4,9 +4,9 @@
 }
 
 html, body {
-    padding: 0;
-    margin: 0;
     font-family: -apple-system, system-ui, sans-serif;
+    margin: 0;
+    padding: 0;
     @include themify($themes) {
         background-color: themed('background');
         color: themed('textColour');
@@ -23,20 +23,40 @@ p:last-child {
     margin-bottom: 0;
 }
 
+.text-emphasis, strong {
+    font-weight: 600;
+    @include themify($themes) {
+        color: themed('textEmphasisColour');
+    }
+}
+
 .tmpl-post li,img {
     max-width: 37.5em; /* 600px /16 */
 }
 
-p,.tmpl-post li {
+p, .tmpl-post li {
     line-height: 1.45;
 }
 
-a[href] {
-    color: var(--blue);
-}
-
-a[href]:visited {
-    color: var(--navy);
+a[href], a[href]:visited {
+    @include themify($themes) {
+        color: themed('linkColour');
+    }
+    &:hover {
+        @include themify($themes) {
+            color: themed('linkColourHover');
+        }
+    }
+    &.postlist-link {
+        @include themify($themes) {
+            color: themed('textColour');
+        }
+        &:hover {
+            @include themify($themes) {
+                color: themed('linkColour');
+            }
+        }
+    }
 }
 
 main {
@@ -68,8 +88,8 @@ header {
 
     /* Header */
     .home {
-        padding: 0 1rem;
         font-size: 1em; /* 16px /16 */
+        padding: 0 1rem;
     }
 
     .home :link:not(:hover) {
@@ -78,21 +98,27 @@ header {
 
     /* Nav */
     nav {
-        padding: 0;
         margin-left: 1em;
+        padding: 0;
     }
 
-    .nav-item {
+    a[href].nav-item {
         margin: 1rem auto; /* 16px /16 */
         margin-right: 1em;
         text-decoration: none;
+        @include themify($themes) {
+            color: themed('headingColour');
+        }
 
         &:hover {
             text-decoration: underline;
+            @include themify($themes) {
+                color: themed('headingColour');
+            }
         }
     }
 
-    .nav-item-active {
+    a[href].nav-item-active {
         @include themify($themes) {
             color: themed('headingColour');
         }
@@ -102,35 +128,34 @@ header {
 }
 
 header:after {
+    clear: both;
     content: "";
     display: table;
-    clear: both;
 }
 
-pre,
-code {
+pre, code {
     font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
     line-height: 1.5;
 }
 
 pre {
-    font-size: 14px;
-    line-height: 1.375;
+    background-color: #F6F6F6;
     direction: ltr;
-    text-align: left;
-    white-space: pre;
-    word-spacing: normal;
-    word-break: normal;
-    -moz-tab-size: 2;
-    -o-tab-size: 2;
-    tab-size: 2;
+    font-size: 14px;
     -webkit-hyphens: none;
     -moz-hyphens: none;
     -ms-hyphens: none;
     hyphens: none;
-    padding: 1em;
+    line-height: 1.375;
     margin: .5em 0;
-    background-color: #f6f6f6;
+    padding: 1em;
+    -moz-tab-size: 2;
+    -o-tab-size: 2;
+    tab-size: 2;
+    text-align: left;
+    white-space: pre;
+    word-break: normal;
+    word-spacing: normal;
 }
 
 code {
@@ -138,10 +163,10 @@ code {
 }
 
 .highlight-line {
+    color: inherit; /* override del, ins, mark defaults */
     display: block;
     padding: 0.125em 1em;
     text-decoration: none; /* override del, ins, mark defaults */
-    color: inherit; /* override del, ins, mark defaults */
 }
 
 /* allow highlighting empty lines */
@@ -155,21 +180,21 @@ code {
 }
 
 .highlight-line-isdir {
-    color: #b0b0b0;
-    background-color: #222;
+    background-color: #222222;
+    color: #B0B0B0;
 }
 
 .highlight-line-active {
-    background-color: #444;
+    background-color: #444444;
     background-color: hsla(0, 0%, 27%, .8);
 }
 
 .highlight-line-add {
-    background-color: #45844b;
+    background-color: #45844B;
 }
 
 .highlight-line-remove {
-    background-color: #902f2f;
+    background-color: #902F2F;
 }
 
 /* Posts list */
@@ -179,25 +204,24 @@ code {
 }
 
 .postlist-item {
-    display: flex;
-    flex-wrap: wrap;
     align-items: baseline;
     counter-increment: start-from -1;
+    display: flex;
+    flex-wrap: wrap;
     line-height: 1.8;
 }
 
 .postlist-item:before {
-    display: inline-block;
-    pointer-events: none;
     content: "" counter(start-from, decimal-leading-zero) ". ";
+    display: inline-block;
     line-height: 100%;
+    pointer-events: none;
     text-align: right;
 }
 
-.postlist-date,
-.postlist-item:before {
-    font-size: 0.8125em; /* 13px /16 */
+.postlist-date, .postlist-item:before {
     color: var(--darkgray);
+    font-size: 0.8125em; /* 13px /16 */
 }
 
 .postlist-date {
@@ -207,9 +231,9 @@ code {
 .postlist-link {
     padding-left: .25em;
     padding-right: .25em;
-    text-underline-position: from-font;
-    text-underline-offset: 0;
     text-decoration-thickness: 1px;
+    text-underline-offset: 0;
+    text-underline-position: from-font;
 }
 
 .postlist-item-active .postlist-link {
@@ -224,30 +248,33 @@ code {
 
 /* Tags */
 .post-tag {
-    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    text-transform: uppercase;
+    border-radius: 0.25em; /* 3px /12 */
+    display: inline-flex;
     font-size: 0.75em; /* 12px /16 */
-    padding: 0.08333333333333em 0.3333333333333em; /* 1px 4px /12 */
+    justify-content: center;
+    line-height: 1.8;
+    margin-bottom: 0.5em; /* 6px /12 */
     margin-left: 0.6666666666667em; /* 8px /12 */
     margin-top: 0.5em; /* 6px /12 */
-    margin-bottom: 0.5em; /* 6px /12 */
-    color: var(--darkgray);
-    border: 1px solid var(--gray);
-    border-radius: 0.25em; /* 3px /12 */
+    padding: 0.08333333333333em 0.3333333333333em; /* 1px 4px /12 */
     text-decoration: none;
-    line-height: 1.8;
+    text-transform: uppercase;
+    @include themify($themes) {
+        border: 1px solid themed('borderColour');
+    }
 }
 
-a[href].post-tag,
-a[href].post-tag:visited {
-    color: inherit;
-}
+a[href].post-tag, a[href].post-tag:visited {
+    @include themify($themes) {
+        color: themed('postTagColour');
+    }
 
-a[href].post-tag:hover,
-a[href].post-tag:focus {
-    background-color: var(--lightgray);
+    &:hover {
+        @include themify($themes) {
+            color: themed('linkColourHover');
+        }
+    }
 }
 
 .postlist-item > .post-tag {
@@ -256,7 +283,7 @@ a[href].post-tag:focus {
 
 /* Warning */
 .warning {
-    background-color: #ffc;
+    background-color: #FFC;
     padding: 1em 0.625em; /* 16px 10px /16 */
 }
 .warning ol:only-child {
@@ -266,17 +293,16 @@ a[href].post-tag:focus {
 /* Direct Links / Markdown Headers */
 .direct-link {
     font-family: sans-serif;
-    text-decoration: none;
     font-style: normal;
     margin-left: .1em;
+    text-decoration: none;
 }
-a[href].direct-link,
-a[href].direct-link:visited {
+a[href].direct-link, a[href].direct-link:visited {
     color: transparent;
 }
-a[href].direct-link:focus,
-a[href].direct-link:focus:visited,
-:hover > a[href].direct-link,
+a[href].direct-link:focus, a[href].direct-link:focus:visited, :hover > a[href].direct-link,
 :hover > a[href].direct-link:visited {
-    color: #aaa;
+    @include themify($themes) {
+        color: themed('linkColourHover');
+    }
 }
