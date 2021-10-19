@@ -1,6 +1,6 @@
 _site/
 node_modules/
+css/
 package-lock.json
 .dccache
 .env
-css/
