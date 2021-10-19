@@ -38,12 +38,25 @@ p, .tmpl-post li {
     line-height: 1.45;
 }
 
-a[href] {
-    color: var(--blue);
-}
-
-a[href]:visited {
-    color: var(--navy);
+a[href], a[href]:visited {
+    @include themify($themes) {
+        color: themed('linkColour');
+    }
+    &:hover {
+        @include themify($themes) {
+            color: themed('linkColourHover');
+        }
+    }
+    &.postlist-link {
+        @include themify($themes) {
+            color: themed('textColour');
+        }
+        &:hover {
+            @include themify($themes) {
+                color: themed('linkColour');
+            }
+        }
+    }
 }
 
 main {
@@ -89,17 +102,23 @@ header {
         padding: 0;
     }
 
-    .nav-item {
+    a[href].nav-item {
         margin: 1rem auto; /* 16px /16 */
         margin-right: 1em;
         text-decoration: none;
+        @include themify($themes) {
+            color: themed('headingColour');
+        }
 
         &:hover {
             text-decoration: underline;
+            @include themify($themes) {
+                color: themed('headingColour');
+            }
         }
     }
 
-    .nav-item-active {
+    a[href].nav-item-active {
         @include themify($themes) {
             color: themed('headingColour');
         }
@@ -230,9 +249,7 @@ code {
 /* Tags */
 .post-tag {
     align-items: center;
-    border: 1px solid var(--gray);
     border-radius: 0.25em; /* 3px /12 */
-    color: var(--darkgray);
     display: inline-flex;
     font-size: 0.75em; /* 12px /16 */
     justify-content: center;
@@ -243,14 +260,21 @@ code {
     padding: 0.08333333333333em 0.3333333333333em; /* 1px 4px /12 */
     text-decoration: none;
     text-transform: uppercase;
+    @include themify($themes) {
+        border: 1px solid themed('borderColour');
+    }
 }
 
 a[href].post-tag, a[href].post-tag:visited {
-    color: inherit;
-}
+    @include themify($themes) {
+        color: themed('postTagColour');
+    }
 
-a[href].post-tag:hover, a[href].post-tag:focus {
-    background-color: var(--lightgray);
+    &:hover {
+        @include themify($themes) {
+            color: themed('linkColourHover');
+        }
+    }
 }
 
 .postlist-item > .post-tag {
@@ -278,5 +302,7 @@ a[href].direct-link, a[href].direct-link:visited {
 }
 a[href].direct-link:focus, a[href].direct-link:focus:visited, :hover > a[href].direct-link,
 :hover > a[href].direct-link:visited {
-    color: #AAAAAA;
+    @include themify($themes) {
+        color: themed('linkColourHover');
+    }
 }

@@ -23,14 +23,17 @@
             <a href="{{ entry.url | url }}" class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}">{{ entry.title }}</a>
           {%- endfor %}
         </nav>
-      <section>
-      <div class="themeToggle">
-        <input id="lightToggle" class="toggle toggleLeft" name="theme" type="radio">
-        <label for="lightToggle" class="toggleBtn">Light</label>
+      </section>
+      <section class="themeToggleContainer">
+        <fieldset class="themeToggle">
+        <legend></legend>
+          <input id="lightToggle" class="toggle toggleLeft" name="theme" type="radio">
+          <label for="lightToggle" class="toggleBtn">Light</label>
 
-        <input id="darkToggle" class="toggle toggleRight" name="theme" type="radio">
-        <label for="darkToggle" class="toggleBtn">Dark</label>
-      </div>
+          <input id="darkToggle" class="toggle toggleRight" name="theme" type="radio">
+          <label for="darkToggle" class="toggleBtn">Dark</label>
+        </fieldset>
+      </section>
     </header>
 
     <main{% if templateClass %} class="{{ templateClass }}"{% endif %}>

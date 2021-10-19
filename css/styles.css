@@ -32,7 +32,7 @@ p:last-child {
   font-weight: 600;
 }
 html.theme_light .text-emphasis, html.theme_light strong {
-  color: #BF6690;
+  color: #391306;
 }
 html.theme_dark .text-emphasis, html.theme_dark strong {
   color: #B67C9A;
@@ -47,12 +47,29 @@ p, .tmpl-post li {
   line-height: 1.45;
 }
 
-a[href] {
-  color: var(--blue);
+html.theme_light a[href], html.theme_light a[href]:visited {
+  color: #710019;
 }
-
-a[href]:visited {
-  color: var(--navy);
+html.theme_dark a[href], html.theme_dark a[href]:visited {
+  color: #B67C9A;
+}
+html.theme_light a[href]:hover, html.theme_light a[href]:visited:hover {
+  color: #391306;
+}
+html.theme_dark a[href]:hover, html.theme_dark a[href]:visited:hover {
+  color: #CBA3B8;
+}
+html.theme_light a[href].postlist-link, html.theme_light a[href]:visited.postlist-link {
+  color: #333333;
+}
+html.theme_dark a[href].postlist-link, html.theme_dark a[href]:visited.postlist-link {
+  color: #E5E6E9;
+}
+html.theme_light a[href].postlist-link:hover, html.theme_light a[href]:visited.postlist-link:hover {
+  color: #710019;
+}
+html.theme_dark a[href].postlist-link:hover, html.theme_dark a[href]:visited.postlist-link:hover {
+  color: #B67C9A;
 }
 
 main {
@@ -72,7 +89,7 @@ header {
   /* Nav */
 }
 html.theme_light header {
-  background: #F2B8D0;
+  background: #F1CED4;
 }
 html.theme_dark header {
   background: #73436D;
@@ -96,23 +113,35 @@ header nav {
   margin-left: 1em;
   padding: 0;
 }
-header .nav-item {
+header a[href].nav-item {
   margin: 1rem auto;
   /* 16px /16 */
   margin-right: 1em;
   text-decoration: none;
 }
-header .nav-item:hover {
+html.theme_light header a[href].nav-item {
+  color: #000000;
+}
+html.theme_dark header a[href].nav-item {
+  color: #FFFFFF;
+}
+header a[href].nav-item:hover {
   text-decoration: underline;
 }
-header .nav-item-active {
+html.theme_light header a[href].nav-item:hover {
+  color: #000000;
+}
+html.theme_dark header a[href].nav-item:hover {
+  color: #FFFFFF;
+}
+header a[href].nav-item-active {
   font-weight: 700;
   text-decoration: underline;
 }
-html.theme_light header .nav-item-active {
+html.theme_light header a[href].nav-item-active {
   color: #000000;
 }
-html.theme_dark header .nav-item-active {
+html.theme_dark header a[href].nav-item-active {
   color: #FFFFFF;
 }
 
@@ -241,10 +270,8 @@ code {
 /* Tags */
 .post-tag {
   align-items: center;
-  border: 1px solid var(--gray);
   border-radius: 0.25em;
   /* 3px /12 */
-  color: var(--darkgray);
   display: inline-flex;
   font-size: 0.75em;
   /* 12px /16 */
@@ -261,13 +288,24 @@ code {
   text-decoration: none;
   text-transform: uppercase;
 }
-
-a[href].post-tag, a[href].post-tag:visited {
-  color: inherit;
+html.theme_light .post-tag {
+  border: 1px solid #710019;
+}
+html.theme_dark .post-tag {
+  border: 1px solid #B67C9A;
 }
 
-a[href].post-tag:hover, a[href].post-tag:focus {
-  background-color: var(--lightgray);
+html.theme_light a[href].post-tag, html.theme_light a[href].post-tag:visited {
+  color: #710019;
+}
+html.theme_dark a[href].post-tag, html.theme_dark a[href].post-tag:visited {
+  color: #B67C9A;
+}
+html.theme_light a[href].post-tag:hover, html.theme_light a[href].post-tag:visited:hover {
+  color: #391306;
+}
+html.theme_dark a[href].post-tag:hover, html.theme_dark a[href].post-tag:visited:hover {
+  color: #CBA3B8;
 }
 
 .postlist-item > .post-tag {
@@ -297,9 +335,13 @@ a[href].direct-link, a[href].direct-link:visited {
   color: transparent;
 }
 
-a[href].direct-link:focus, a[href].direct-link:focus:visited, :hover > a[href].direct-link,
-:hover > a[href].direct-link:visited {
-  color: #AAAAAA;
+html.theme_light a[href].direct-link:focus, html.theme_light a[href].direct-link:focus:visited, html.theme_light :hover > a[href].direct-link,
+html.theme_light :hover > a[href].direct-link:visited {
+  color: #391306;
+}
+html.theme_dark a[href].direct-link:focus, html.theme_dark a[href].direct-link:focus:visited, html.theme_dark :hover > a[href].direct-link,
+html.theme_dark :hover > a[href].direct-link:visited {
+  color: #CBA3B8;
 }
 
 /* prism-base16-monokai dark */
@@ -416,41 +458,47 @@ pre > code.highlight {
 }
 
 /* Toggle Button */
-.themeToggle {
-  position: fixed;
+.themeToggleContainer {
+  position: absolute;
   right: 3px;
   top: 3px;
 }
-.themeToggle .toggleBtn {
+.themeToggleContainer .themeToggle {
+  border: none;
+  margin: 0;
+  padding: 0;
+  position: sticky;
+}
+.themeToggleContainer .themeToggle .toggleBtn {
   display: inline-block;
   padding: 10px;
   position: relative;
   text-align: center;
   transition: background 600ms ease, color 600ms ease;
 }
-html.theme_light .themeToggle .toggleBtn {
-  border: 3px solid #E9E9E9;
+html.theme_light .themeToggleContainer .themeToggle .toggleBtn {
+  border: 3px solid #E9EAE0;
 }
-html.theme_dark .themeToggle .toggleBtn {
+html.theme_dark .themeToggleContainer .themeToggle .toggleBtn {
   border: 3px solid #1F252F;
 }
-.themeToggle input[type=radio].toggle {
+.themeToggleContainer .themeToggle input[type=radio].toggle {
   display: none;
 }
-.themeToggle input[type=radio].toggle + label {
+.themeToggleContainer .themeToggle input[type=radio].toggle + label {
   cursor: pointer;
   min-width: 60px;
 }
-.themeToggle input[type=radio].toggle + label:hover {
+.themeToggleContainer .themeToggle input[type=radio].toggle + label:hover {
   background: none;
 }
-html.theme_light .themeToggle input[type=radio].toggle + label:hover {
+html.theme_light .themeToggleContainer .themeToggle input[type=radio].toggle + label:hover {
   color: #333333;
 }
-html.theme_dark .themeToggle input[type=radio].toggle + label:hover {
+html.theme_dark .themeToggleContainer .themeToggle input[type=radio].toggle + label:hover {
   color: #E5E6E9;
 }
-.themeToggle input[type=radio].toggle + label:after {
+.themeToggleContainer .themeToggle input[type=radio].toggle + label:after {
   content: "";
   height: 100%;
   position: absolute;
@@ -459,38 +507,38 @@ html.theme_dark .themeToggle input[type=radio].toggle + label:hover {
   width: 100%;
   z-index: -1;
 }
-html.theme_light .themeToggle input[type=radio].toggle + label:after {
-  background: #E9E9E9;
+html.theme_light .themeToggleContainer .themeToggle input[type=radio].toggle + label:after {
+  background: #E9EAE0;
 }
-html.theme_dark .themeToggle input[type=radio].toggle + label:after {
+html.theme_dark .themeToggleContainer .themeToggle input[type=radio].toggle + label:after {
   background: #1F252F;
 }
-.themeToggle input[type=radio].toggle.toggleLeft + label {
+.themeToggleContainer .themeToggle input[type=radio].toggle.toggleLeft + label {
   border-right: 0;
 }
-.themeToggle input[type=radio].toggle.toggleLeft + label:after {
+.themeToggleContainer .themeToggle input[type=radio].toggle.toggleLeft + label:after {
   left: 100%;
 }
-.themeToggle input[type=radio].toggle.toggleRight + label {
+.themeToggleContainer .themeToggle input[type=radio].toggle.toggleRight + label {
   margin-left: -5px;
 }
-.themeToggle input[type=radio].toggle.toggleRight + label:after {
+.themeToggleContainer .themeToggle input[type=radio].toggle.toggleRight + label:after {
   left: -100%;
 }
-.themeToggle input[type=radio].toggle:not(:checked + label) {
+.themeToggleContainer .themeToggle input[type=radio].toggle:not(:checked + label) {
   opacity: 0.6;
 }
-.themeToggle input[type=radio].toggle:checked + label {
+.themeToggleContainer .themeToggle input[type=radio].toggle:checked + label {
   cursor: default;
   transition: color 200ms;
 }
-html.theme_light .themeToggle input[type=radio].toggle:checked + label {
+html.theme_light .themeToggleContainer .themeToggle input[type=radio].toggle:checked + label {
   color: #333333;
 }
-html.theme_dark .themeToggle input[type=radio].toggle:checked + label {
+html.theme_dark .themeToggleContainer .themeToggle input[type=radio].toggle:checked + label {
   color: #E5E6E9;
 }
-.themeToggle input[type=radio].toggle:checked + label:after {
+.themeToggleContainer .themeToggle input[type=radio].toggle:checked + label:after {
   left: 0;
 }
 

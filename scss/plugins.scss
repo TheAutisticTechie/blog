@@ -112,80 +112,88 @@ pre > code.highlight {
 }
 
 /* Toggle Button */
-.themeToggle {
-	position: fixed;
+
+.themeToggleContainer {
+	position: absolute;
 	right: 3px;
 	top: 3px;
 
-	.toggleBtn {
-		@include themify($themes) {
-			border: 3px solid themed('themeToggleBackgroundColour');
+	.themeToggle {
+		border: none;
+		margin: 0;
+		padding: 0;
+		position: sticky;
+
+		.toggleBtn {
+			@include themify($themes) {
+				border: 3px solid themed('themeToggleBackgroundColour');
+			}
+			display: inline-block;
+			padding: 10px;
+			position: relative;
+			text-align: center;
+			transition: background 600ms ease, color 600ms ease;
 		}
-		display: inline-block;
-		padding: 10px;
-		position: relative;
-		text-align: center;
-		transition: background 600ms ease, color 600ms ease;
-	}
 
-	input[type="radio"].toggle {
-		display: none;
+		input[type="radio"].toggle {
+			display: none;
 
-		& + label {
-			//background: #222222;
-			cursor: pointer;
-			min-width: 60px;
+			& + label {
+				//background: #222222;
+				cursor: pointer;
+				min-width: 60px;
 
-			&:hover {
+				&:hover {
+					@include themify($themes) {
+						color: themed('themeToggleTextColour');
+					}
+					background: none;
+				}
+
+				&:after {
+					@include themify($themes) {
+						background: themed('themeToggleBackgroundColour');
+					}
+					content: "";
+					height: 100%;
+					position: absolute;
+					top: 0;
+					transition: left 200ms cubic-bezier(0.77, 0, 0.175, 1);
+					width: 100%;
+					z-index: -1;
+				}
+			}
+
+			&.toggleLeft + label {
+				border-right: 0;
+
+				&:after{
+					left: 100%
+				}
+			}
+
+			&.toggleRight + label{
+				margin-left: -5px;
+				
+				&:after{
+					left: -100%;
+				}
+			}
+
+			&:not(:checked + label) {
+				opacity: 0.6;
+			}
+
+			&:checked + label {
 				@include themify($themes) {
 					color: themed('themeToggleTextColour');
 				}
-				background: none;
-			}
+				cursor: default;
+				transition: color 200ms;
 
-			&:after {
-				@include themify($themes) {
-					background: themed('themeToggleBackgroundColour');
+				&:after{
+					left: 0;
 				}
-				content: "";
-				height: 100%;
-				position: absolute;
-				top: 0;
-				transition: left 200ms cubic-bezier(0.77, 0, 0.175, 1);
-				width: 100%;
-				z-index: -1;
-			}
-		}
-
-		&.toggleLeft + label {
-			border-right: 0;
-
-			&:after{
-				left: 100%
-			}
-		}
-
-		&.toggleRight + label{
-			margin-left: -5px;
-			
-			&:after{
-				left: -100%;
-			}
-		}
-
-		&:not(:checked + label) {
-			opacity: 0.6;
-		}
-
-		&:checked + label {
-			@include themify($themes) {
-				color: themed('themeToggleTextColour');
-			}
-			cursor: default;
-			transition: color 200ms;
-
-			&:after{
-				left: 0;
 			}
 		}
 	}
