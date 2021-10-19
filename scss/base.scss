@@ -23,6 +23,13 @@ p:last-child {
     margin-bottom: 0;
 }
 
+.text-emphasis, strong {
+    font-weight: 600;
+    @include themify($themes) {
+        color: themed('textEmphasisColour');
+    }
+}
+
 .tmpl-post li,img {
     max-width: 37.5em; /* 600px /16 */
 }

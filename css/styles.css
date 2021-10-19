@@ -9,12 +9,12 @@ html, body {
   padding: 0;
 }
 html.theme_light html, html.theme_light body {
-  background-color: #E9E9E9;
+  background-color: #E9EAE0;
   color: #333333;
 }
 html.theme_dark html, html.theme_dark body {
-  background-color: #1E1E1E;
-  color: #A9A9A9;
+  background-color: #1F252F;
+  color: #E5E6E9;
 }
 
 html.theme_light h1, html.theme_light h2, html.theme_light h3, html.theme_light h4, html.theme_light h5, html.theme_light h6 {
@@ -26,6 +26,16 @@ html.theme_dark h1, html.theme_dark h2, html.theme_dark h3, html.theme_dark h4, 
 
 p:last-child {
   margin-bottom: 0;
+}
+
+.text-emphasis, strong {
+  font-weight: 600;
+}
+html.theme_light .text-emphasis, html.theme_light strong {
+  color: #BF6690;
+}
+html.theme_dark .text-emphasis, html.theme_dark strong {
+  color: #B67C9A;
 }
 
 .tmpl-post li, img {
@@ -62,10 +72,10 @@ header {
   /* Nav */
 }
 html.theme_light header {
-  background: #D7AFEF;
+  background: #F2B8D0;
 }
 html.theme_dark header {
-  background: #13021D;
+  background: #73436D;
 }
 header section {
   margin: 0 auto;
@@ -422,7 +432,7 @@ html.theme_light .themeToggle .toggleBtn {
   border: 3px solid #E9E9E9;
 }
 html.theme_dark .themeToggle .toggleBtn {
-  border: 3px solid #1E1E1E;
+  border: 3px solid #1F252F;
 }
 .themeToggle input[type=radio].toggle {
   display: none;
@@ -438,7 +448,7 @@ html.theme_light .themeToggle input[type=radio].toggle + label:hover {
   color: #333333;
 }
 html.theme_dark .themeToggle input[type=radio].toggle + label:hover {
-  color: #A9A9A9;
+  color: #E5E6E9;
 }
 .themeToggle input[type=radio].toggle + label:after {
   content: "";
@@ -453,7 +463,7 @@ html.theme_light .themeToggle input[type=radio].toggle + label:after {
   background: #E9E9E9;
 }
 html.theme_dark .themeToggle input[type=radio].toggle + label:after {
-  background: #1E1E1E;
+  background: #1F252F;
 }
 .themeToggle input[type=radio].toggle.toggleLeft + label {
   border-right: 0;
@@ -478,7 +488,7 @@ html.theme_light .themeToggle input[type=radio].toggle:checked + label {
   color: #333333;
 }
 html.theme_dark .themeToggle input[type=radio].toggle:checked + label {
-  color: #A9A9A9;
+  color: #E5E6E9;
 }
 .themeToggle input[type=radio].toggle:checked + label:after {
   left: 0;

@@ -3,20 +3,22 @@
 
 $themes: (
     light: (
-        background: #E9E9E9,
+        background: #E9EAE0,
         headingColour: #000000,
         textColour: #333333,
-        headerBackground: #D7AFEF,
+        textEmphasisColour: #BF6690,
+        headerBackground: #F2B8D0,
         themeToggleBackgroundColour: #E9E9E9,
         themeToggleTextColour: #333333
     ),
     dark: (
-        background: #1E1E1E,
+        background: #1F252F,
         headingColour: #FFFFFF,
-        textColour: #A9A9A9,
-        headerBackground: #13021D,
-        themeToggleBackgroundColour: #1E1E1E,
-        themeToggleTextColour: #A9A9A9
+        textColour: #E5E6E9,
+        textEmphasisColour: #B67C9A,
+        headerBackground: #73436D,
+        themeToggleBackgroundColour: #1F252F,
+        themeToggleTextColour: #E5E6E9
     ),
 );
 
