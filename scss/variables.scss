@@ -26,7 +26,8 @@ $themes: (
         linkColourHover: $light_black,
         borderColour: $light_red,
         headerBackground: $light_pink1,
-        themeToggleBackgroundColour: $light_grey,
+        themeToggleBackgroundCheckedColour: $light_grey,
+        themeToggleBackgroundColour: $light_pink1,
         themeToggleTextColour: #333333,
         postTagColour: $light_red
     ),
@@ -39,7 +40,8 @@ $themes: (
         linkColourHover: $dark_pink2,
         borderColour: $dark_pink1,
         headerBackground: $dark_purple,
-        themeToggleBackgroundColour: $dark_black,
+        themeToggleBackgroundCheckedColour: $dark_black,
+        themeToggleBackgroundColour: $dark_pink1,
         themeToggleTextColour: $dark_grey,
         postTagColour: $dark_pink1
     ),

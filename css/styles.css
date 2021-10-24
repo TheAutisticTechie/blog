@@ -522,6 +522,12 @@ html.theme_dark .themeToggleContainer .themeToggle input[type=radio].toggle + la
 .themeToggleContainer .themeToggle input[type=radio].toggle.toggleRight + label {
   margin-left: -5px;
 }
+html.theme_light .themeToggleContainer .themeToggle input[type=radio].toggle.toggleRight + label {
+  background: #F1CED4;
+}
+html.theme_dark .themeToggleContainer .themeToggle input[type=radio].toggle.toggleRight + label {
+  background: #B67C9A;
+}
 .themeToggleContainer .themeToggle input[type=radio].toggle.toggleRight + label:after {
   left: -100%;
 }
